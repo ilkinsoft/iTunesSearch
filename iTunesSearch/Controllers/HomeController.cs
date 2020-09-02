@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iTunesSearch.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,13 @@ namespace iTunesSearch.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Search(string keyword)
+        {
+            ApiService apiService = new ApiService();
+            string result = apiService.CallApi(keyword);
+            return View(result);
         }
 
         public ActionResult About()
