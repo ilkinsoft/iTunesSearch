@@ -14,11 +14,14 @@ namespace iTunesSearch.Controllers
             return View();
         }
 
-        public ActionResult Search(string keyword)
+        public PartialViewResult Search(string keyword)
         {
             ApiService apiService = new ApiService();
             string result = apiService.CallApi(keyword);
-            return View(result);
+
+            var jsonConverterService = new JsonConverterService();
+            var list = jsonConverterService.ConvertToMovieList(result);
+            return PartialView("_Movie", list);
         }
 
         public ActionResult About()
