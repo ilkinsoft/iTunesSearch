@@ -5,12 +5,12 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<div class="jumbotron rebeccapurple">
     <h1>iTunes Search</h1>
 </div>
 
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         @using (Ajax.BeginForm("Search", "Home", new AjaxOptions
         {
             HttpMethod = "GET",

@@ -1,4 +1,5 @@
-﻿using iTunesSearch.Services;
+﻿using iTunesSearch.DTO;
+using iTunesSearch.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace iTunesSearch.Controllers
         public ActionResult Search(string keyword)
         {
             if (string.IsNullOrWhiteSpace(keyword))
-                return PartialView("_Movie", null);
+                return PartialView("_Movie", new List<Movie>());
 
             ApiService apiService = new ApiService();
             string result = apiService.CallApi(keyword);
