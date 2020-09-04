@@ -14,8 +14,11 @@ namespace iTunesSearch.Controllers
             return View();
         }
 
-        public PartialViewResult Search(string keyword)
+        public ActionResult Search(string keyword)
         {
+            if (string.IsNullOrWhiteSpace(keyword))
+                return PartialView("_Movie", null);
+
             ApiService apiService = new ApiService();
             string result = apiService.CallApi(keyword);
 

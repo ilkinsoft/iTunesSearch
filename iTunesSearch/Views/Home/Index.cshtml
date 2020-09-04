@@ -1,37 +1,45 @@
-﻿@{
+﻿<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
     <h1>iTunes Search</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
-@using (Ajax.BeginForm("Search", "Home", new AjaxOptions
-{
-    HttpMethod = "GET",
-    UpdateTargetId = "result",
-    LoadingElementId = "LoadingImage",
-    OnSuccess = "onSuccess_Message",
-    OnFailure = "onFailure_Message"
+<div class="row">
+    <div class="col-sm-6">
+        @using (Ajax.BeginForm("Search", "Home", new AjaxOptions
+        {
+            HttpMethod = "GET",
+            UpdateTargetId = "result",
+            InsertionMode = InsertionMode.Replace,
+            LoadingElementId = "LoadingImage",
+            OnSuccess = "onSuccess_Message",
+            OnFailure = "onFailure_Message"
+        }))
+        {
+            @Html.AntiForgeryToken()
 
-}))
-{
-    <div class="row">
-        <div class="col-md-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="input-group">
+                        <input name="keyword" type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">Search</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            </div>
 
-            <div class="input-group">
-                <input name="keyword" type="text" class="form-control" placeholder="Search for...">
-                <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">Search</button>
-                </span>
-            </div><!-- /input-group -->
-        </div>
+            <div id="LoadingImage" style="display:none">Loading...</div>
+            <div id="onSuccess_Message"></div>
+            <div id="onFailure_Message"></div>
+
+            <div id="result"></div>
+        }
     </div>
-    <div id="LoadingImage" style="display:none">Loading...</div>
-    <div id="onSuccess_Message"></div>
-    <div id="onFailure_Message"></div>
+</div>
 
-    <b id="result"></b>
-}
