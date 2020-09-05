@@ -1,7 +1,6 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    /*background-color: #0c002e*/
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -24,14 +23,14 @@ textarea {
     /*max-width: 280px;*/
 }
 
-.rebeccapurple{
-    color:rebeccapurple;
+
+.rebeccapurple {
+    color: rebeccapurple;
 }
 
 .moviePanel {
     margin-bottom: 5px;
     /*background-color: rebeccapurple;*/
-
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(71,9,121,1) 18%, rgba(0,137,255,1) 100%);
 }

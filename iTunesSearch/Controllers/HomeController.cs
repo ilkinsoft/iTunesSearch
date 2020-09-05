@@ -15,6 +15,7 @@ namespace iTunesSearch.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Search(string keyword)
         {
             if (string.IsNullOrWhiteSpace(keyword))
