@@ -7,6 +7,8 @@ namespace iTunesSearch.Models
     public class Interaction
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public string UserId { get; set; }
 
         [ForeignKey("UserId")]

@@ -48,7 +48,7 @@ namespace iTunesSearch.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "UserId,ClickedAdUrl,InteractionTime,DeviceName,ScreenSize")] Interaction interaction)
         {
             if (ModelState.IsValid)

@@ -183,6 +183,10 @@
     <Compile Include="Migrations\202009052210558_InteractionModelIsAdded.Designer.cs">
       <DependentUpon>202009052210558_InteractionModelIsAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009060431170_AutoIdAddedIntoInteractionModel.cs" />
+    <Compile Include="Migrations\202009060431170_AutoIdAddedIntoInteractionModel.Designer.cs">
+      <DependentUpon>202009060431170_AutoIdAddedIntoInteractionModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -217,6 +221,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -280,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009052210558_InteractionModelIsAdded.resx">
       <DependentUpon>202009052210558_InteractionModelIsAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009060431170_AutoIdAddedIntoInteractionModel.resx">
+      <DependentUpon>202009060431170_AutoIdAddedIntoInteractionModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
