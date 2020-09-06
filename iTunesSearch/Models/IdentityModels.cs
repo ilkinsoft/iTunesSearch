@@ -29,5 +29,9 @@ namespace iTunesSearch.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<iTunesSearch.Models.Interaction> Interactions { get; set; }
+
+        //public System.Data.Entity.DbSet<iTunesSearch.Models.ApplicationUser> ApplicationUsers { get; set; }
     }
 }

@@ -4,41 +4,55 @@
 
 @foreach (var movie in Model)
 {
-    <div class="moviePanel">
-        <a href="@movie.trackViewUrl" target="_blank">
+    Ajax.ActionLink("TestLink", "Create", "Interactions",
+new
+{
+    UserId = User.Identity,
+    ClickedAdUrl = movie.trackViewUrl,
+    InteractionTime = DateTime.Now,
+    DeviceName = "device",
+    ScreenSize = "screen size"
+},
+new AjaxOptions
+{
+    HttpMethod = "POST"
+});
 
-            <div class="row">
-                <div class="col-xs-2 col-md-1">
-                    <img src="@movie.artworkUrl100" />
+<div class="moviePanel">
+    <a href="@movie.trackViewUrl" target="_blank">
+
+        <div class="row">
+            <div class="col-xs-2 col-md-1">
+                <img src="@movie.artworkUrl100" />
+            </div>
+            <div class="col-xs-10 col-md-11">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <i>#movie:</i> @movie.trackName
+                    </div>
                 </div>
-                <div class="col-xs-10 col-md-11">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <i>#movie:</i> @movie.trackName
-                        </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <i>#artist:</i> @movie.artistName
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <i>#artist:</i> @movie.artistName
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <i>#genre:</i> @movie.primaryGenreName
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <i>#genre:</i> @movie.primaryGenreName
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <i>#country:</i> @movie.country
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <i>#country:</i> @movie.country
                     </div>
                 </div>
             </div>
-        </a>
-    </div>
+        </div>
+    </a>
+</div>
 
-    <hr class="line" />
-    <hr class="line" />
+<hr class="line" />
+<hr class="line" />
 }
 
 @if (Model?.Count() == 0)
