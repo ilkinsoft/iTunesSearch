@@ -15,9 +15,16 @@ namespace iTunesSearch.Controllers
             return View();
         }
 
-        [Authorize]
         public ActionResult Search(string keyword)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                throw new UnauthorizedAccessException();
+                //return new HttpUnauthorizedResult("You are not authorized. Please login before searching.");
+                //return RedirectToAction("/Account/Login");
+                //return Json(new { responseCode = 401, responseText = "You are not authorized. Please login before searching." });
+            }
+
             if (string.IsNullOrWhiteSpace(keyword))
                 return PartialView("_Movie", new List<Movie>());
 

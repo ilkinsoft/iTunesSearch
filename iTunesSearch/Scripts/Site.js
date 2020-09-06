@@ -13,3 +13,13 @@ function sendInteraction(userId, clickedAdUrl, interactionTime, deviceName) {
         });
 
 }
+
+// search fails
+function onFailure_Message() {
+    $('#unauthorizedMessage').text('You are not authorized. Please login before searching.').show()
+}
+
+// search success
+function onSuccess_Message() {
+    console.log('success')
+}

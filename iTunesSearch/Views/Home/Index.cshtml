@@ -18,8 +18,8 @@
             UpdateTargetId = "result",
             InsertionMode = InsertionMode.Replace,
             LoadingElementId = "LoadingImage",
-            OnSuccess = "onSuccess_Message",
-            OnFailure = "onFailure_Message"
+            OnSuccess = "onSuccess_Message()",
+            OnFailure = "onFailure_Message()"
         }))
         {
             @Html.AntiForgeryToken()
@@ -35,9 +35,9 @@
                 </div>
             </div>
 
-            <div id="LoadingImage" style="display:none">Loading...</div>
-            <div id="onSuccess_Message"></div>
-            <div id="onFailure_Message"></div>
+            <br />
+            <div id="LoadingImage" style="display:none" class="alert alert-info" role="alert">Loading...</div>
+            <div id="unauthorizedMessage" class="alert alert-danger" role="alert" style="display:none"></div>
 
             <div id="result"></div>
         }
