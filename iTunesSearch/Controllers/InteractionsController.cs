@@ -6,7 +6,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using iTunesSearch.Models;
-using iTunesSearch.DTO;
 using System.Web.Helpers;
 
 namespace iTunesSearch.Controllers
@@ -47,7 +46,7 @@ namespace iTunesSearch.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "UserId,ClickedAdUrl,InteractionTime,DeviceName,ScreenSize")] Interaction interaction)
+        public async Task<ActionResult> Create([Bind(Include = "UserId,ClickedAdUrl,InteractionTime,DeviceName,IpAddress,ScreenSize")] Interaction interaction)
         {
             if (ModelState.IsValid)
             {

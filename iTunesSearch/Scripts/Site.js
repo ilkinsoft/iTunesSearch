@@ -1,11 +1,12 @@
 ﻿
-function sendInteraction(userId, clickedAdUrl, interactionTime, deviceName) {
+function sendInteraction(userId, clickedAdUrl, interactionTime, deviceName, ipAddress) {
 
     $.post("Interactions/Create/", {
         'UserId': userId,
         'ClickedAdUrl': clickedAdUrl,
         'InteractionTime': interactionTime,
         'DeviceName': deviceName,
+        'IpAddress': ipAddress,
         'ScreenSize': $(window).width() + 'x' + $(window).height()
     },
         function (data, status) {

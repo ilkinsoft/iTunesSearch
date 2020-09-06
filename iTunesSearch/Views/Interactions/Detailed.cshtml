@@ -23,27 +23,33 @@
         <th>
             @Html.DisplayNameFor(model => model.ScreenSize)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.IpAddress)
+        </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClickedAdUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.InteractionTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DeviceName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ScreenSize)
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClickedAdUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InteractionTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeviceName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScreenSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IpAddress)
+            </td>
+        </tr>
+    }
 
 </table>

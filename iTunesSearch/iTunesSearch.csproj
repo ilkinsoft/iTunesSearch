@@ -171,6 +171,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InteractionsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Migrations\202009061045222_IpAddressAddedIntoInteractionModel.cs" />
+    <Compile Include="Migrations\202009061045222_IpAddressAddedIntoInteractionModel.Designer.cs">
+      <DependentUpon>202009061045222_IpAddressAddedIntoInteractionModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\GroupedInteractionViewModel.cs" />
     <Compile Include="DTO\Movie.cs" />
     <Compile Include="Global.asax.cs">
@@ -284,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009060431170_AutoIdAddedIntoInteractionModel.resx">
       <DependentUpon>202009060431170_AutoIdAddedIntoInteractionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009061045222_IpAddressAddedIntoInteractionModel.resx">
+      <DependentUpon>202009061045222_IpAddressAddedIntoInteractionModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

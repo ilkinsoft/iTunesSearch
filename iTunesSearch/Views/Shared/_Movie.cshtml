@@ -7,12 +7,13 @@
 @{
     string userId = @HttpContext.Current.User.Identity.GetUserId();
     string browser = Request.Browser.Browser;
+    string ipAddress = Request.UserHostAddress;
 }
 
 @foreach (var movie in Model)
 {
     <div class="moviePanel">
-        <a href="@movie.trackViewUrl" target="_blank" onclick="sendInteraction('@userId', '@movie.trackViewUrl', '@DateTime.Now', '@browser', 'screen')">
+        <a href="@movie.trackViewUrl" target="_blank" onclick="sendInteraction('@userId', '@movie.trackViewUrl', '@DateTime.Now', '@browser', '@ipAddress')">
 
             <div class="row">
                 <div class="col-xs-2 col-md-1">

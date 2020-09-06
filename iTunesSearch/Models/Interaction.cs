@@ -25,6 +25,9 @@ namespace iTunesSearch.Models
         [DisplayName("Device Name")]
         public string DeviceName { get; set; }
 
+        [DisplayName("Ip Address")]
+        public string IpAddress { get; set; }
+
         [DisplayName("Screen Size")]
         public string ScreenSize { get; set; }
     }
