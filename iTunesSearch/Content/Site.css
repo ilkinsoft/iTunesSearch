@@ -23,6 +23,14 @@ textarea {
     /*max-width: 280px;*/
 }
 
+.navbar-inverse {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(71,9,121,1) 18%, rgba(0,137,255,1) 100%);
+}
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #e6e6e6;
+    }
 
 .rebeccapurple {
     color: rebeccapurple;
