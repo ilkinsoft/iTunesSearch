@@ -171,6 +171,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InteractionsController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Models\GroupedInteractionViewModel.cs" />
     <Compile Include="DTO\Movie.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -262,6 +263,7 @@
     <Content Include="Views\Interactions\Details.cshtml" />
     <Content Include="Views\Interactions\Edit.cshtml" />
     <Content Include="Views\Interactions\Index.cshtml" />
+    <Content Include="Views\Interactions\Detailed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

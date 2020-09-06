@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +6,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using iTunesSearch.Models;
+using iTunesSearch.DTO;
 
 namespace iTunesSearch.Controllers
 {
@@ -17,6 +16,19 @@ namespace iTunesSearch.Controllers
 
         // GET: Interactions
         public async Task<ActionResult> Index()
+        {
+            var interactions = db.Interactions
+                .GroupBy(i => i.ClickedAdUrl)
+                .Select(group => new GroupedInteraction
+                {
+                    ClickedAdUrl = group.Key,
+                    ClickCount = group.Count()
+                })
+                .OrderByDescending(i => i.ClickCount);
+
+            return View(await interactions.ToListAsync());
+        }
+        public async Task<ActionResult> Detailed()
         {
             var interactions = db.Interactions.Include(i => i.User);
             return View(await interactions.ToListAsync());

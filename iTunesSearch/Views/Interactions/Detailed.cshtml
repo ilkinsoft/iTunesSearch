@@ -1,0 +1,49 @@
+﻿@model IEnumerable<iTunesSearch.Models.Interaction>
+
+@{
+    ViewBag.Title = "Interactions - Detailed";
+}
+
+<h2>Interactions - Detailed</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClickedAdUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InteractionTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScreenSize)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClickedAdUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InteractionTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScreenSize)
+        </td>
+    </tr>
+}
+
+</table>
