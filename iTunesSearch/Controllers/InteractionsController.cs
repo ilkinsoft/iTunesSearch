@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using iTunesSearch.Models;
 using iTunesSearch.DTO;
+using System.Web.Helpers;
 
 namespace iTunesSearch.Controllers
 {
@@ -57,6 +58,29 @@ namespace iTunesSearch.Controllers
 
             ViewBag.UserId = new SelectList(db.Users, "Id", "Email", interaction.UserId);
             return View(interaction);
+        }
+
+        public string DrawChart()
+        {
+            var interactions = db.Interactions
+                .GroupBy(i => i.ClickedAdUrl)
+                .Select(group => new GroupedInteraction
+                {
+                    ClickedAdUrl = group.Key,
+                    ClickCount = group.Count()
+                })
+                .OrderByDescending(i => i.ClickCount);
+
+            var myChart = new Chart(width: 600, height: 400, theme: ChartTheme.Vanilla3D)
+                .AddTitle("User Interactions")
+                .AddSeries(
+                    chartType: "pie",
+                    name: "Interactions",
+                    xValue: interactions.Select(i => i.ClickedAdUrl).ToArray(),
+                    yValues: interactions.Select(i => i.ClickCount).ToArray()
+                    ).GetBytes("jpeg");
+
+            return System.Convert.ToBase64String(myChart);
         }
 
         protected override void Dispose(bool disposing)

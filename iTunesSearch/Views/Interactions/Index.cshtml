@@ -7,25 +7,40 @@
 <h2>Interactions</h2>
 <h4>More detailed: @Html.ActionLink("Detailed interactions", "Detailed", "Interactions")</h4>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ClickedAdUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClickCount)
-        </th>
-    </tr>
+<br />
+<br />
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClickedAdUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClickCount)
-        </td>
-    </tr>
-}
+<div class="row">
+    <div class="col-sm-7">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClickedAdUrl)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClickCount)
+                </th>
+            </tr>
 
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClickedAdUrl)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClickCount)
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-sm-5">
+        @if (Model?.Count() > 0)
+        {
+            <img class="chart-interactions" src="data:image/jpg;base64,@Html.Action("DrawChart", "Interactions")" />
+        }
+    </div>
+</div>
+
+
